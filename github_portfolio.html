@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Utkarsh Kapoor | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background-color: #f9f9f9;
+      color: #1f1f1f;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #1e293b;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+    }
+    header p {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+    nav {
+      margin-top: 1rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: #93c5fd;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .projects {
+      padding: 2rem;
+      max-width: 960px;
+      margin: auto;
+    }
+    .projects h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    .project {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      margin-bottom: 1.5rem;
+      transition: transform 0.2s;
+    }
+    .project:hover {
+      transform: translateY(-4px);
+    }
+    .project h3 {
+      font-size: 1.3rem;
+      color: #1d4ed8;
+    }
+    .project p {
+      margin: 0.75rem 0;
+    }
+    .project a {
+      color: #2563eb;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .project img {
+      width: 100%;
+      margin-top: 0.75rem;
+      border-radius: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #e2e8f0;
+      color: #475569;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Utkarsh Kapoor</h1>
+    <p>Data & Technology Enthusiast | Calgary, AB</p>
+    <nav>
+      <a href="https://github.com/utkarshk9" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/utkarsh-kapoor-95bb30205" target="_blank">LinkedIn</a>
+      <a href="Utkarsh_Kapoor_Resume_Finalized.pdf" download>Resume</a>
+    </nav>
+  </header>
+
+  <section class="projects">
+    <h2>Featured Projects</h2>
+
+    <div class="project">
+      <h3>Operational Data Pipeline (Private)</h3>
+      <p>Built using PowerShell and SQL to replicate AVEVA Historian data to a central SQL Server, enabling cross-functional analytics while maintaining OT domain isolation.</p>
+      <img src="data_pipeline_diagram.png" alt="Data Pipeline Diagram">
+    </div>
+
+    <div class="project">
+      <h3>Conference Registration System</h3>
+      <p>Full-stack app using React, Node.js, MySQL, and Stripe. Features include role-based access, profile management, and fee tracking.</p>
+      <a href="https://github.com/utkarshk9/conference-registration">View on GitHub</a>
+    </div>
+
+    <div class="project">
+      <h3>Single Page Application (Vanilla JS)</h3>
+      <p>Dynamic SPA using asynchronous API fetch with custom CSS UI and accessibility best practices.</p>
+      <a href="https://github.com/utkarshk9/vanilla-js-spa">View on GitHub</a>
+    </div>
+
+    <div class="project">
+      <h3>Java Inventory Management System</h3>
+      <p>Built with Java and MariaDB. Applied ER modeling, query optimization, and secure login.</p>
+      <a href="https://github.com/utkarshk9/java-inventory-system">View on GitHub</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Utkarsh Kapoor | Built with ❤️</p>
+  </footer>
+</body>
+</html>
