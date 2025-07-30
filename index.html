@@ -3,135 +3,96 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Utkarsh Kapoor | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>Utkarsh Kapoor | Data & IT Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-    body {
-      background-color: #f9f9f9;
-      color: #1f1f1f;
-      line-height: 1.6;
-    }
-    header {
-      background-color: #1e293b;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    header h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-    }
-    header p {
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
-    }
-    nav {
-      margin-top: 1rem;
-    }
-    nav a {
-      margin: 0 1rem;
-      color: #93c5fd;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .projects {
-      padding: 2rem;
-      max-width: 960px;
-      margin: auto;
-    }
-    .projects h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-    .project {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      margin-bottom: 1.5rem;
-      transition: transform 0.2s;
-    }
-    .project:hover {
-      transform: translateY(-4px);
-    }
-    .project h3 {
-      font-size: 1.3rem;
-      color: #1d4ed8;
-    }
-    .project p {
-      margin: 0.75rem 0;
-    }
-    .project a {
-      color: #2563eb;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .project img {
-      width: 100%;
-      margin-top: 0.75rem;
-      border-radius: 8px;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: #e2e8f0;
-      color: #475569;
-      font-size: 0.9rem;
-    }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
+    header, footer { background: #222; color: white; padding: 1rem; text-align: center; }
+    nav a { margin: 0 1rem; color: #ddd; text-decoration: none; }
+    nav a:hover { color: white; }
+    section { padding: 2rem; max-width: 900px; margin: auto; }
+    h1, h2, h3 { color: #111; }
+    .project { background: white; margin-bottom: 1rem; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .project-details { display: none; margin-top: 1rem; }
+    .toggle-button { background: #007acc; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; }
+    .toggle-button:hover { background: #005fa3; }
   </style>
+  <script>
+    function toggleDetails(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
 </head>
 <body>
   <header>
     <h1>Utkarsh Kapoor</h1>
-    <p>Data & Technology Enthusiast | Calgary, AB</p>
+    <p>Data & IT Intern | Power BI | SQL | Cloud Enthusiast</p>
     <nav>
-      <a href="https://github.com/utkarshk9" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/utkarsh-kapoor-95bb30205" target="_blank">LinkedIn</a>
-      <a href="Utkarsh_Kapoor_Resume_Finalized.pdf" download>Resume</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="Utkarsh_Kapoor_Resume_Finalized.pdf" target="_blank">Resume</a>
     </nav>
   </header>
 
-  <section class="projects">
-    <h2>Featured Projects</h2>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I'm a Computer Information Systems student at Mount Royal University, passionate about turning complex data into actionable insights.
+      With hands-on experience in Power BI, SQL, automation, and scripting, I recently completed an Operational Technology internship at Elk Valley Resources where I built monitoring pipelines, supported SentinelOne endpoint systems, and automated reporting for Tier 1 historian servers.
+    </p>
+    <p>
+      I thrive in fast-paced environments and am eager to bring my skills to enterprise data teams. Currently seeking full-time opportunities in data, analytics, or infrastructure roles.
+    </p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
 
     <div class="project">
-      <h3>Operational Data Pipeline (Private)</h3>
-      <p>Built using PowerShell and SQL to replicate AVEVA Historian data to a central SQL Server, enabling cross-functional analytics while maintaining OT domain isolation.</p>
-      <img src="data_pipeline_diagram.png" alt="Data Pipeline Diagram">
+      <h3>Historian Data Monitoring Pipeline</h3>
+      <button class="toggle-button" onclick="toggleDetails('p1')">View Details</button>
+      <div class="project-details" id="p1">
+        <p>
+          Designed and implemented a hybrid PowerShell + SQL solution to pull replication metrics from multiple Tier 1 historian servers. Centralized data into a secure SQL Server instance to support cross-functional reporting, reduce RTS dependency, and enable the business data pipeline team to directly query performance insights. Used SQL Agent, stored procedures, and PowerShell scripts with email alerting.
+        </p>
+      </div>
     </div>
 
     <div class="project">
-      <h3>Conference Registration System</h3>
-      <p>Full-stack app using React, Node.js, MySQL, and Stripe. Features include role-based access, profile management, and fee tracking.</p>
-      <a href="https://github.com/utkarshk9/conference-registration">View on GitHub</a>
+      <h3>Alphacons Conference Registration System</h3>
+      <button class="toggle-button" onclick="toggleDetails('p2')">View Details</button>
+      <div class="project-details" id="p2">
+        <p>
+          A full-stack registration platform built using React, Node.js/Express, Google Cloud MySQL, and Stripe. Enabled user authentication, role-based access control, automated invoice generation, and a mobile-friendly UI. Hosted on Google Cloud App Engine.
+        </p>
+      </div>
     </div>
 
     <div class="project">
-      <h3>Single Page Application (Vanilla JS)</h3>
-      <p>Dynamic SPA using asynchronous API fetch with custom CSS UI and accessibility best practices.</p>
-      <a href="https://github.com/utkarshk9/vanilla-js-spa">View on GitHub</a>
+      <h3>Single Page Weather Dashboard</h3>
+      <button class="toggle-button" onclick="toggleDetails('p3')">View Details</button>
+      <div class="project-details" id="p3">
+        <p>
+          Created a responsive single-page application using vanilla JavaScript and REST APIs to fetch real-time weather data. Focused on accessibility, CSS styling, and API integration. Demonstrated end-to-end asynchronous logic without frameworks.
+        </p>
+      </div>
     </div>
 
     <div class="project">
-      <h3>Java Inventory Management System</h3>
-      <p>Built with Java and MariaDB. Applied ER modeling, query optimization, and secure login.</p>
-      <a href="https://github.com/utkarshk9/java-inventory-system">View on GitHub</a>
+      <h3>Java Inventory Management DB</h3>
+      <button class="toggle-button" onclick="toggleDetails('p4')">View Details</button>
+      <div class="project-details" id="p4">
+        <p>
+          Designed a Java-based inventory system using MariaDB with CRUD operations, inventory tracking, and user roles. Implemented optimized SQL queries and basic analytics for diagnostics. Practiced database normalization, UI validation, and multi-user data protection.
+        </p>
+      </div>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Utkarsh Kapoor | Built with ❤️</p>
+    <p>Built with ❤️ by Utkarsh Kapoor · <a href="mailto:utkarsh.kapoor@example.com">Contact Me</a></p>
   </footer>
 </body>
 </html>
