@@ -3,47 +3,183 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Utkarsh Kapoor | Data & IT Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Utkarsh Kapoor | Tech Portfolio</title>
   <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
-    header, footer { background: #222; color: white; padding: 1rem; text-align: center; }
-    nav a { margin: 0 1rem; color: #ddd; text-decoration: none; }
-    nav a:hover { color: white; }
-    section { padding: 2rem; max-width: 900px; margin: auto; }
-    h1, h2, h3 { color: #111; }
-    .project { background: white; margin-bottom: 1rem; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    .project-details { display: none; margin-top: 1rem; }
-    .toggle-button { background: #007acc; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; }
-    .toggle-button:hover { background: #005fa3; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0f172a;
+      color: #f1f5f9;
+      overflow-x: hidden;
+    }
+    header, footer {
+      background: #1e293b;
+      color: #f1f5f9;
+      padding: 1.5rem;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: #cbd5e1;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: white;
+    }
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      animation: fadeInUp 1s ease-in-out;
+    }
+    h1, h2, h3 {
+      color: #e2e8f0;
+    }
+    .project {
+      background: #1e293b;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .toggle-button {
+      background: #0ea5e9;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .toggle-button:hover {
+      background: #0284c7;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      padding: 2rem;
+      background: #1e293b;
+      box-shadow: 0 0 15px rgba(255,255,255,0.1);
+      border-radius: 8px;
+      max-width: 700px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #f8fafc;
+    }
+    .modal.show {
+      display: block;
+      animation: slideFadeIn 0.5s ease forwards;
+    }
+    .modal-close {
+      float: right;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: #ccc;
+      transition: color 0.3s ease;
+    }
+    .modal-close:hover {
+      color: white;
+    }
+    iframe {
+      border-radius: 8px;
+    }
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .embed-demo {
+      margin-top: 1rem;
+      border: 2px solid #334155;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .embed-demo iframe {
+      width: 100%;
+      height: 400px;
+    }
+    @keyframes slideFadeIn {
+      0% {
+        opacity: 0;
+        transform: translate(30%, -50%) scale(0.98);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
   </style>
   <script>
-    function toggleDetails(id) {
-      const el = document.getElementById(id);
-      el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    function openModal(id) {
+      document.querySelectorAll('.modal').forEach(m => m.classList.remove('show'));
+      document.getElementById(id).classList.add('show');
     }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('show');
+    }
+    window.addEventListener('click', function(event) {
+      document.querySelectorAll('.modal').forEach(modal => {
+        if (modal.classList.contains('show') && !modal.contains(event.target) && !event.target.classList.contains('toggle-button')) {
+          modal.classList.remove('show');
+        }
+      });
+    });
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        document.querySelectorAll('.modal').forEach(modal => {
+          modal.classList.remove('show');
+        });
+      }
+    });
   </script>
 </head>
 <body>
   <header>
     <h1>Utkarsh Kapoor</h1>
-    <p>Data & IT Intern | Power BI | SQL | Cloud Enthusiast</p>
+    <p>Data & IT Intern · Software Developer · Web Dev · Tech Generalist</p>
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
-      <a href="Utkarsh_Kapoor_Resume_Finalized.pdf" target="_blank">Resume</a>
+      <a href="#contact">Contact</a>
+      <a href="#" onclick="openModal('resumeModal')">Resume</a>
     </nav>
   </header>
 
   <section id="about">
     <h2>About Me</h2>
     <p>
-      I'm a Computer Information Systems student at Mount Royal University, passionate about turning complex data into actionable insights.
-      With hands-on experience in Power BI, SQL, automation, and scripting, I recently completed an Operational Technology internship at Elk Valley Resources where I built monitoring pipelines, supported SentinelOne endpoint systems, and automated reporting for Tier 1 historian servers.
+      I'm a Computer Information Systems student at Mount Royal University with hands-on experience in data infrastructure, scripting, full-stack web development, and cybersecurity tools. At Elk Valley Resources, I built automation pipelines, managed SentinelOne exposure monitoring, and maintained historian SQL environments.
     </p>
     <p>
-      I thrive in fast-paced environments and am eager to bring my skills to enterprise data teams. Currently seeking full-time opportunities in data, analytics, or infrastructure roles.
+      My background includes developing responsive single-page apps, coding server-side systems in Node.js and SQL, building full-stack platforms, and deploying to cloud. I'm comfortable working across frontend, backend, and infrastructure stacks.
+    </p>
+    <p>
+      I thrive in fast-paced environments and am eager to bring my skills to enterprise data, IT, and software teams. Currently seeking full-time opportunities in data, analytics, infrastructure, or software development roles.
     </p>
   </section>
 
@@ -51,48 +187,69 @@
     <h2>Projects</h2>
 
     <div class="project">
-      <h3>Historian Data Monitoring Pipeline</h3>
-      <button class="toggle-button" onclick="toggleDetails('p1')">View Details</button>
-      <div class="project-details" id="p1">
-        <p>
-          Designed and implemented a hybrid PowerShell + SQL solution to pull replication metrics from multiple Tier 1 historian servers. Centralized data into a secure SQL Server instance to support cross-functional reporting, reduce RTS dependency, and enable the business data pipeline team to directly query performance insights. Used SQL Agent, stored procedures, and PowerShell scripts with email alerting.
-        </p>
-      </div>
+      <h3><i class="fas fa-server"></i> Historian Data Monitoring Pipeline</h3>
+      <button class="toggle-button" onclick="openModal('p1')">View Details</button>
+    </div>
+    <div class="modal" id="p1">
+      <span class="modal-close" onclick="closeModal('p1')">&times;</span>
+      <p>
+        A PowerShell + SQL Server-based data monitoring tool used to extract AVEVA replication health metrics across historian servers. Designed to decouple data access from operational domains and centralize metrics in a secure environment for downstream analytics.
+        Includes SQL Agent jobs, automated alerting, and pipeline optimization for business visibility.
+      </p>
     </div>
 
     <div class="project">
-      <h3>Alphacons Conference Registration System</h3>
-      <button class="toggle-button" onclick="toggleDetails('p2')">View Details</button>
-      <div class="project-details" id="p2">
-        <p>
-          A full-stack registration platform built using React, Node.js/Express, Google Cloud MySQL, and Stripe. Enabled user authentication, role-based access control, automated invoice generation, and a mobile-friendly UI. Hosted on Google Cloud App Engine.
-        </p>
-      </div>
+      <h3><i class="fab fa-react"></i> Alphacons Conference Platform</h3>
+      <button class="toggle-button" onclick="openModal('p2')">View Details</button>
+    </div>
+    <div class="modal" id="p2">
+      <span class="modal-close" onclick="closeModal('p2')">&times;</span>
+      <p>
+        Built a responsive full-stack event platform in React, Node.js, and MySQL. Features user registration, role-based speaker/session management, and payment integration using Stripe. Hosted on Google Cloud Platform with logging and analytics.<br>
+        🔗 <a href="https://github.com/utkarshk9/Comp3504-Final-Project" target="_blank">View on GitHub</a>
+      </p>
     </div>
 
     <div class="project">
-      <h3>Single Page Weather Dashboard</h3>
-      <button class="toggle-button" onclick="toggleDetails('p3')">View Details</button>
-      <div class="project-details" id="p3">
-        <p>
-          Created a responsive single-page application using vanilla JavaScript and REST APIs to fetch real-time weather data. Focused on accessibility, CSS styling, and API integration. Demonstrated end-to-end asynchronous logic without frameworks.
-        </p>
+      <h3><i class="fas fa-music"></i> Single Page Music App</h3>
+      <button class="toggle-button" onclick="openModal('p3')">View Details</button>
+      <div class="embed-demo">
+        <iframe src="https://utkarshk9.github.io/Comp3512-Assign-2/" loading="lazy"></iframe>
       </div>
+    </div>
+    <div class="modal" id="p3">
+      <span class="modal-close" onclick="closeModal('p3')">&times;</span>
+      <p>
+        A dynamic client-side music browser using JavaScript, HTML, and CSS. Features artist search, track preview, filtering, and responsive layout. Designed for lightweight interaction and smooth mobile experience.<br>
+        🔗 <a href="https://utkarshk9.github.io/Comp3512-Assign-2/" target="_blank">Live Demo</a>
+      </p>
     </div>
 
     <div class="project">
-      <h3>Java Inventory Management DB</h3>
-      <button class="toggle-button" onclick="toggleDetails('p4')">View Details</button>
-      <div class="project-details" id="p4">
-        <p>
-          Designed a Java-based inventory system using MariaDB with CRUD operations, inventory tracking, and user roles. Implemented optimized SQL queries and basic analytics for diagnostics. Practiced database normalization, UI validation, and multi-user data protection.
-        </p>
-      </div>
+      <h3><i class="fas fa-boxes"></i> Java Inventory DB System</h3>
+      <button class="toggle-button" onclick="openModal('p4')">View Details</button>
     </div>
+    <div class="modal" id="p4">
+      <span class="modal-close" onclick="closeModal('p4')">&times;</span>
+      <p>
+        A desktop inventory manager in Java with MariaDB backend. Supports user roles, real-time stock tracking, and automated reorder logic. Implemented GUI components with form validation and reporting queries.
+      </p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>📧 utkarsh.kapoor@example.com</p>
+    <p>🔗 <a href="https://github.com/utkarshk9" target="_blank">GitHub</a> | <a href="https://linkedin.com/in/utkarshk9" target="_blank">LinkedIn</a></p>
   </section>
 
   <footer>
     <p>Built with ❤️ by Utkarsh Kapoor · <a href="mailto:utkarsh.kapoor@example.com">Contact Me</a></p>
   </footer>
+
+  <div id="resumeModal" class="modal">
+    <span class="modal-close" onclick="closeModal('resumeModal')">&times;</span>
+    <iframe src="Utkarsh_Kapoor_Resume_Finalized.pdf" style="width:100%;height:80vh;border:none;"></iframe>
+  </div>
 </body>
 </html>
